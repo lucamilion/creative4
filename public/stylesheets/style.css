@@ -60,3 +60,15 @@ h1 {
   margin: 0 0 12px;
   text-align: center;
 }
+
+#save {
+  color: black;
+  font-family: 'Droid serif', serif;
+  font-size: 20px;
+  margin-bottom: 0px;
+  line-height: 20px;
+  padding-bottom: 0px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+}

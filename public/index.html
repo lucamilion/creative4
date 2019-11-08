@@ -12,9 +12,13 @@
   <div id="app">
     <div id="buttons">
       <button v-on:click="getAdvice">Advise Me</button>
-      <button v-on:click="addAdviceToBase">Save Advice</button>
+      <br/>
+      <div id="save" v-if="saved">Saved!</div>
+      <button v-if="!saved" v-on:click="addAdviceToBase">Save Advice</button>
+      <br v-if="!saved">
       <button v-on:click="getGoodAdvice">View Collection</button>
     </div>
+
     <blockquote v-if="!awesome" class="blockquote">
       <p>
         {{ currentAdvice }}
@@ -22,7 +26,7 @@
     </blockquote>
     <ul v-if="awesome">
       <li v-for="advice in goodAdvice">
-        {{ advice.value }}
+        {{ advice }}
       </li>
     </ul>
   </div>

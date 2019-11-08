@@ -7,22 +7,25 @@ var app = new Vue({
     currentAdvice: '',
     goodAdvice: [],
     awesome: false,
+    saved: false
   },
   methods: {
     getAdvice() {
-      this.awesome = false
-      var url = "http://lucamilion.com:3000/advice"
+      this.saved = false;
+      this.awesome = false;
+      var url = "http://lucamilion.com:3000/advice";
       fetch(url)
         .then((data) => {
           return (data.json());
         })
         .then((advice) => {
           console.log(advice);
-          this.currentAdvice = advice.slip.advice
+          this.currentAdvice = advice.slip.advice;
         });
     },
     addAdviceToBase() {
-      console.log("adding")
+      this.saved = true;
+      console.log("adding");
       var url = "http://lucamilion.com:3000/goodadvice";
       axios.post(url, { value: this.currentAdvice })
         .then(response => {})
@@ -31,11 +34,22 @@ var app = new Vue({
         });
     },
     async getGoodAdvice() {
-      this.awesome = true
+      this.awesome = true;
       var url = "http://lucamilion.com:3000/goodadvice";
       try {
         let response = await axios.get(url);
-        this.goodAdvice = response.data;
+        let unfiltered = response.data;
+        console.log(unfiltered);
+        let filtered = [];
+        for (let i = 0; i < unfiltered.length; i++) {
+          if (filtered.includes(unfiltered[i].value)) {
+            //do nothing
+          }
+          else {
+            filtered.push(unfiltered[i].value);
+          }
+        }
+        this.goodAdvice = filtered;
         return true;
       }
       catch (error) {
@@ -44,3 +58,4 @@ var app = new Vue({
     },
   },
 });
+//29469
