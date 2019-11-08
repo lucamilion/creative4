@@ -6,9 +6,11 @@ var app = new Vue({
   data: {
     currentAdvice: '',
     goodAdvice: [],
+    awesome: false,
   },
   methods: {
     getAdvice() {
+      this.awesome = false
       var url = "http://lucamilion.com:3000/advice"
       fetch(url)
         .then((data) => {
@@ -29,6 +31,7 @@ var app = new Vue({
         });
     },
     async getGoodAdvice() {
+      this.awesome = true
       var url = "http://lucamilion.com:3000/goodadvice";
       try {
         let response = await axios.get(url);

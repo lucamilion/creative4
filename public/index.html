@@ -3,22 +3,28 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Vue REST</title>
+  <title>Free Advice</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body background="/paper.jpg">
-  <h1 align="center">Worlds Best Utah City Suggester/Dictionary Website</h1>
+<body background="/so-white.png">
+  <h1 align="center">Free Advice</h1>
   <div id="app">
-    <h1 align="center">Select a City</h1>
-    <button v-on:click="getAdvice">Get Advice</button>
-    <button v-on:click="addAdviceToBase">*</button>
-    <button v-on:click="getGoodAdvice">G</button>
-    <p>
-      {{ currentAdvice }}
-    </p>
-    <div v-for="advice in goodAdvice">
-      {{ advice.value }}
+    <div id="buttons">
+      <button v-on:click="getAdvice">Advise Me</button>
+      <button v-on:click="addAdviceToBase">Save Advice</button>
+      <button v-on:click="getGoodAdvice">View Collection</button>
     </div>
+    <blockquote v-if="!awesome" class="blockquote">
+      <p>
+        {{ currentAdvice }}
+      </p>
+    </blockquote>
+    <ul v-if="awesome">
+      <li v-for="advice in goodAdvice">
+        {{ advice.value }}
+      </li>
+    </ul>
   </div>
   <footer>
     <hr>

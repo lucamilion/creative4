@@ -6,3 +6,57 @@ body {
 a {
   color: #00B7FF;
 }
+
+.blockquote {
+  padding: 60px 80px 40px;
+  position: relative;
+}
+
+.blockquote p {
+  font-family: "Utopia-italic";
+  font-size: 35px;
+  font-weight: 700px;
+  text-align: center;
+}
+
+
+.blockquote::after {
+  content: "";
+  top: 20px;
+  left: 50%;
+  margin-left: -100px;
+  position: absolute;
+  border-bottom: 3px solid #bf0024;
+  height: 3px;
+  width: 200px;
+}
+
+footer {
+  text-align: center;
+}
+
+#buttons {
+  text-align: center;
+}
+
+li {
+  font-family: "Utopia-italic";
+  font-size: 35px;
+  font-weight: 700px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  color: black;
+  font-family: 'Droid serif', serif;
+  font-size: 64px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 44px;
+  margin: 0 0 12px;
+  text-align: center;
+}
