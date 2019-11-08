@@ -12,7 +12,7 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
-    "morgan": "~1.6.1",
+    "morgan": "~1.9.1",
     "serve-favicon": "~2.3.0"
   },
   "description": "In this lab you will implement the Utah cities suggestions RESTful service in Node.js that connects to your cities application from [\"Activity V3: Vue with REST Calls\"](https://github.com/BYUCS260/Vue-REST).  You will take a URL with a ?q=chars suffix and will look up all of the utah cities that have those chars as a prefix. You will then return a JSON string corresponding to the entries.",
