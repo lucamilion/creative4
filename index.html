@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vue REST</title>
+</head>
+
+<body background="/paper.jpg">
+  <h1 align="center">Worlds Best Utah City Suggester/Dictionary Website</h1>
+  <div id="app">
+    <h1 align="center">Select a City</h1>
+    <form align="center" v-on:keyup.prevent="fetchREST">
+      <input type="text" v-model="prefix">
+    </form>
+    <ul>
+      <li v-for="item in cities">
+        {{ item.name }}
+      </li>
+    </ul>
+    <h1 align="center">Search for a Word</h1>
+    <form align="center" v-on:submit.prevent="fetchDef">
+      <input type="text" v-model="searchWord">
+    </form>
+    <ol>
+      <li style="background-color:white; border-radius: 25px; border: 2px solid grey; padding: 20px; margin: 10px " v-for="item in definitions">
+        Part of Speech: {{ item.type }} <br> Definition: {{ item.def }} <br> Example: {{ item.example}}
+      </li>
+    </ol>
+  </div>
+  <footer>
+    <hr>
+    <a href="https://github.com/BYUCS260/lab-4-node-lucamilion">GitHub</a>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="javascripts/script.js"></script>
+</body>
+
+</html>
